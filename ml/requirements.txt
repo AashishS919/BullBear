@@ -1,0 +1,7 @@
+# BullBear Stock - ML layer (Phase 3). Runs in a dedicated Python 3.12 venv,
+# separate from the 3.14 backend (TensorFlow has no 3.14 wheels).
+tensorflow==2.18.0
+scikit-learn==1.6.1
+numpy==2.0.2
+joblib==1.4.2
+pymongo==4.10.1

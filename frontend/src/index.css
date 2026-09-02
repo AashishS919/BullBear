@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/*
+  BullBear Stock - Design Tokens (Tailwind CSS v4, CSS-first @theme)
+  Theme: light mode, warm-neutral whites, financial convention, no gradients.
+  Bull/Bear/Accent share lightness (0.62) and chroma (0.17) so they balance.
+*/
+@theme {
+  /* --- Surfaces (warm-neutral) --- */
+  --color-paper: #FAFAF7;        /* app background */
+  --color-surface: #FFFFFF;      /* cards / panels */
+  --color-surface-2: #F4F3EE;    /* subtle raised / hover */
+  --color-ink: #0E1116;          /* primary text */
+  --color-ink-2: #3A3F46;        /* secondary text */
+  --color-ink-3: #6B7178;        /* muted text / labels */
+  --color-line: #E7E5DE;         /* borders / dividers */
+  --color-line-2: #D8D5CC;       /* stronger borders */
+
+  /* --- Semantic market colors (oklch, matched L + C) --- */
+  --color-bull: oklch(0.62 0.17 145);      /* bullish / up / gains */
+  --color-bull-soft: oklch(0.62 0.17 145 / 0.12);
+  --color-bear: oklch(0.62 0.17 25);       /* bearish / down / losses */
+  --color-bear-soft: oklch(0.62 0.17 25 / 0.12);
+  --color-accent: oklch(0.62 0.17 250);    /* primary actions / links */
+  --color-accent-soft: oklch(0.62 0.17 250 / 0.12);
+
+  /* --- Typography --- */
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* Type scale (1.200 minor third, base 16px) */
+  --text-xs: 0.75rem;     /* 12 - labels, table meta */
+  --text-sm: 0.875rem;    /* 14 - body small, table cells */
+  --text-base: 1rem;      /* 16 - body */
+  --text-lg: 1.125rem;    /* 18 - card titles */
+  --text-xl: 1.375rem;    /* 22 - section headings */
+  --text-2xl: 1.75rem;    /* 28 - page titles */
+  --text-3xl: 2.25rem;    /* 36 - hero figures / big numbers */
+
+  /* --- Radii --- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  /* --- Shadows (soft, no glow) --- */
+  --shadow-card: 0 1px 2px rgba(14, 17, 22, 0.04), 0 1px 3px rgba(14, 17, 22, 0.06);
+  --shadow-pop: 0 4px 12px rgba(14, 17, 22, 0.10);
+}
+
+/* --- Base layer --- */
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Tabular numerals for all financial figures rendered in mono */
+.font-mono {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Thin, neutral scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line-2) transparent;
+}
